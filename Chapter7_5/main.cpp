@@ -3,12 +3,7 @@
 using namespace std;
 
 
-unsigned long long factorial(int n)
-{
-	if(n == 1)
-		return n;
-	return n * factorial(n - 1);
-}
+unsigned long long factorial(int n);
 
 
 int main()
@@ -22,4 +17,11 @@ int main()
 		cout << "Enter n, to calculate n!: ";
 	}
 	return 0;
+}
+
+unsigned long long factorial(int n)
+{
+	if(n == 1)
+		return n;
+	return n * factorial(n - 1);
 }
