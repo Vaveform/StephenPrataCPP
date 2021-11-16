@@ -7,7 +7,7 @@ using namespace std;
 
 bool SymbolsCopier(const char& symbol)
 {
-	return isalpha(symbol);
+	return isalnum(symbol);
 	//return strchr(" \t\n.,?';:+=-}]{[)(!", symbol) == NULL;
 }
 
