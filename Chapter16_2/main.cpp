@@ -5,9 +5,10 @@
 #include <cctype>
 using namespace std;
 
-bool Cleaner(const char& symbol)
+bool SymbolsCopier(const char& symbol)
 {
-	return strchr(" \t\n.,?';:+=-}]{[)(!", symbol) == NULL;
+	return isalpha(symbol);
+	//return strchr(" \t\n.,?';:+=-}]{[)(!", symbol) == NULL;
 }
 
 char LowerMaker(const char& symbol){
@@ -18,7 +19,7 @@ char LowerMaker(const char& symbol){
 bool IsPolindrome(const string& passed_string)
 {
 	string copy_str;
-	copy_if(passed_string.begin(), passed_string.end(), back_inserter(copy_str), Cleaner);
+	copy_if(passed_string.begin(), passed_string.end(), back_inserter(copy_str), SymbolsCopier);
 	transform(copy_str.begin(), copy_str.end(), copy_str.begin(), LowerMaker);
 	return copy_str.find(
 			string(copy_str.rbegin() 
