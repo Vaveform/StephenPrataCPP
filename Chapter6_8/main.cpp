@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
 		cerr << "File was didn't open" << endl;
 		exit(EXIT_FAILURE);
 	}
-	long long symbols_c = 0;
+	unsigned long long symbols_c = 0;
 	while(inFile && inFile.get() != EOF) ++symbols_c;
 	cout << "In passed file: " << symbols_c << " symbols" << endl;
 	return 0;
