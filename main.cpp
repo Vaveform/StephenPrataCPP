@@ -31,7 +31,7 @@ int main()
 	{
 		cout << "Enter name of sponsor #" << read_elements + 1 << ": ";
 		getline(cin, sponsors[read_elements].name);
-		if(sponsors[read_elements].name == "\0") break;
+		if(sponsors[read_elements].name[0] == '\n') break;
 		if(cin){
 			cout << "Enter donate from sponsor #" << read_elements + 1 << ": ";
 			cin >> sponsors[read_elements].donate;

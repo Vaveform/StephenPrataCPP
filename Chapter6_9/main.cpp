@@ -1,6 +1,9 @@
+// File version of six exercise
+
+
 #include <iostream>
 #include <string>
-
+#include <fstream>
 using namespace std;
 
 
@@ -12,11 +15,21 @@ struct Sponsor
 
 int main()
 {
+	ifstream Input("sponsors.txt");
+	if(!Input.is_open())
+	{
+		cerr << "Cannot to open sponsors.txt file" << endl;
+		exit(EXIT_FAILURE);
+	}
 	int s = 0;
+	
 
-	cout << "Enter number of sponsors: ";
-	cin >> s;
-	while(cin && cin.get() != '\n') continue;
+
+
+
+	//cout << "Enter number of sponsors: ";
+	Input >> s;
+	while(Input && Input.get() != '\n') continue;
 	if(s < 0 || !s){
 		cerr << "Entered size of sponsors invalid" << endl;
 		exit(EXIT_FAILURE);
@@ -27,15 +40,15 @@ int main()
 
 	// Reading from cin stream 
 	int read_elements;
-	for(read_elements = 0; cin && read_elements < s; ++read_elements)
+	for(read_elements = 0; Input && read_elements < s; ++read_elements)
 	{
-		cout << "Enter name of sponsor #" << read_elements + 1 << ": ";
-		getline(cin, sponsors[read_elements].name);
+		//cout << "Enter name of sponsor #" << read_elements + 1 << ": ";
+		getline(Input, sponsors[read_elements].name);
 		if(sponsors[read_elements].name == "\0") break;
-		if(cin){
-			cout << "Enter donate from sponsor #" << read_elements + 1 << ": ";
-			cin >> sponsors[read_elements].donate;
-			while(cin && cin.get() != '\n') continue;
+		if(Input){
+			//cout << "Enter donate from sponsor #" << read_elements + 1 << ": ";
+			Input >> sponsors[read_elements].donate;
+			while(Input && Input.get() != '\n') continue;
 			if(sponsors[read_elements].donate <= 0) break;
 		}
 	}
